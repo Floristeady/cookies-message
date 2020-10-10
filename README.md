@@ -1,5 +1,14 @@
 # cookies-message
 
- Message Script About Cookies
+Message Script About Cookies
+Current Version: 0.1.0
  
- Sample https://www.floristeady.com/codes/cookies-message/index.html
+## Demo
+ 
+https://www.floristeady.com/codes/cookies-message/index.html
+
+
+## License
+
+Licensed under the MIT license.
+
