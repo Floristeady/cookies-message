@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cookies Message</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  
+  <meta name="theme-color" content="#fafafa">
+  <style>
+	  
+	  /* defult styles */
+	  
+	  body {
+	  	font-family: 'Lato', sans-serif;
+	  	background: #efefef;
+	  	padding: 64px;
+	  }
+	  
+	  a {
+		  color: #666;
+	  }
+	  
+	  /* meesage styles */
+	  
+	  #message-cookie {
+		  background: white;
+		  border-radius: 16px;
+		  padding: 24px;
+		  width: 90%;
+		  margin-left: auto;
+		  margin-right: auto;
+		  position: fixed;
+		  bottom:32px;
+		  display: flex;
+		  left: 0;
+		  right: 0;
+		  z-index: 10;
+		  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
+	  }
+	  
+	  #message-cookie.show {
+		  display: flex;
+	  }
+	  
+	  #message-cookie button {
+		  background: #444;
+		  padding: 8px;
+		  border-radius: 10px;
+		  cursor: pointer;
+		  color: white;
+		  -webkit-appearance: none;
+		  -moz-appearance:none;
+	  }
+ 
+  </style>
+  
+  </head>
+
+<body>
+	
+	<header class="site-header">
+	  
+		<a class="site-logo" href="#">Message Script About Cookies</a>
+	  
+	</header>
+	
+	<section role="main">
+		
+		<div class="site-hero">
+			
+			<div class="row container fix-index">
+				<h1>Cookies Policy</h1>
+				<p>Created for Spincommerce stores, but you can use it whatever you want.</p>
+			</div>
+			
+		</div>
+	</section>
+
+	<div id="message-cookie">
+		  <div class=""><strong>Si, utilizamos cookies </strong>para asegurar que damos la mejor experiencia y poder analizar cómo se utiliza este sitio web. Si continúa navegando asumiremos que está de acuerdo, para saber más revisa la <a href="/addurl" class="line">política de privacidad</a>.</div> 
+		  <button onclick="SetCookieAndHideDiv();" class="button">Acepto</button>
+	</div>
+	
+	<footer class="site-footer">
+		<p class="is-bold">By Florencia Rosenfeld</a></p>
+	</footer>
+
+</body>
+<script>
+	
+	(function() { 
+		checkcookie();
+	})();
+	
+	/* check if cookie exists */
+	function checkcookie() {
+	  var checkcookie=getCookie("hideDiv");
+	  if(checkcookie == "true") {
+	      document.getElementById("message-cookie").style.display = "none";
+	  }
+	}
+	
+	/* set cookie true for one month*/
+	function SetCookieAndHideDiv(){
+		 setCookie('hideDiv','true', 1);
+		 document.getElementById("message-cookie").style.display = "none";
+	}
+	
+	/* set cookie name, value and expires */
+	function setCookie(cname,cvalue,exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	  var expires = "expires=" + d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	  
+	}
+	
+	/* get cookie name */
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+		    var c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+ 	} 
+ 	
+</script>
+
+</html>
