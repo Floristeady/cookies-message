@@ -12,7 +12,7 @@ function checkcookie() {
 
 /* set cookie true for one month*/
 function SetCookieAndHideDiv(){
-	 setCookie('hideDiv','true', 1);
+	 setCookie('hideDiv','true', 30);
 	 document.getElementById("message-cookie").style.display = "none";
 }
 
